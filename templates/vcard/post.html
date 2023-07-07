@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+{%block start%}
+<div class="container active">
+    <div class="post">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <img class="post-image" src="/media/{{post.featured_image}}" alt="">
+            <hr>
+            
+            <p>
+                Published on {{ post.published_date }}
+            </p>
+            <hr>
+            <p  class="post-text">{{ post.text }}</p>
+
+                <a href="/blog" class="post-btn">
+                    <span class="btn-icon"><i class="fas fa-arrow-left"></i></span>
+                    <span class="btn-text">back to blog</span>
+                </a>
+
+        
+    </div>
+
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block start %}
+
+
+<section class="container active" id="blogs">
+    <div class="blogs-content">
+        <div class="main-title">
+            <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
+        </div>
+        <div class="blogs">
+            {%for blog in blogs%}
+            <a href="/blog/{{blog.slug}}">
+            <div class="blog">
+                <img src="/media/{{blog.featured_image}}" alt="">
+                <div class="blog-text">
+                    <h4>
+                        {{blog.title}}
+                    </h4>
+                    <p>
+                        {{ blog.text | truncatechars:70}}
+                    </p>
+                </div>
+            </div>
+             </a>    
+            {%endfor%}
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block start %}
+
+<main>
+<section class="container about active" id="about">
+  <div class="main-title">
+      <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
+  </div>
+  <div class="about-container">
+      <div class="left-about">
+            <img src="/media/{{about.about_image}}" alt="">
+            
+      </div>
+      <div class="right-about">
+          <div class="about-item">
+              <div class="abt-text">
+                  <p class="large-text">{{about.projects_completed}}+</p>
+                  <p class="small-text">Projects <br /> Completed</p>
+              </div>
+          </div>
+          <div class="about-item">
+              <div class="abt-text">
+                  <p class="large-text">{{about.years_of_experience}}+</p>
+                  <p class="small-text">Years of <br /> experience</p>
+              </div>
+          </div>
+          <div class="about-item">
+              <div class="abt-text">
+                  <p class="large-text">{{about.happy_clients}}+</p>
+                  <p class="small-text">Happy <br /> Clients</p>
+              </div>
+          </div>
+          <div class="about-item">
+              <div class="abt-text">
+                  <p class="large-text">{{about.customer_reviews}}+</p>
+                  <p class="small-text">Customer <br /> reviews</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="about-stats">
+      <h4 class="stat-title">My Skills</h4>
+      <div class="progress-bars">
+
+
+          {% for skill in skills%}
+          <div class="progress-bar">
+              <p class="prog-title">{{skill.name}}</p>
+              <div class="progress-con">
+                  <p class="prog-text">{{skill.level}}%</p>
+                  <div class="progress">
+                    <span class="html" style="width: {{skill.level}}%;"></span>
+                  </div>
+              </div>
+          </div>
+          {% endfor%}
+      </div>
+  </div>
+  <h4 class="stat-title">Education</h4>
+  <div class="timeline">
+    {% for edu in education%}
+      <div class="timeline-item">
+          <div class="tl-icon">
+              <i class="fas fa-graduation-cap"></i>
+          </div>
+          <p class="tl-duration">{{edu.starting_year}} - {{edu.finished_year}}</p>
+          <h5>{{edu.title}} <span> - {{edu.institution}}</span></h5>
+          <p>
+            {{edu.description}}
+            </p>
+      </div>
+      {%endfor%}
+  </div>
+</section>
+</main>
+{% endblock %}

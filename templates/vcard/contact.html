@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+
+{% block start %}
+
+
+<section class="container contact active" id="contact">
+    <div class="contact-container">
+        <div class="main-title">
+            <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
+        </div>
+        <div class="contact-content-con">
+            <div class="left-contact">
+                <h4>Contact me here</h4>
+                <br>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                            <span>Name</span>
+                        </div>
+                        <p>
+                            {{contact.name}}
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                        <p>
+                            {{contact.email}}
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                            <span>Phone</span>
+                        </div>
+                        <p>
+                            {{contact.phone}}
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Location</span>
+                        </div>
+                        <p>
+                            {{contact.address}}
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="contact-icons">
+                    <div class="contact-icon">
+                        {%for social in socials%}
+                        <a href="{{social.media_link}}" target="_blank">
+                            <i class="{{social.media_icon}}"></i>
+                        </a>
+                        {%endfor%}
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="right-contact">
+                <form method="POST"  class="contact-form">
+                    {%csrf_token%}
+                     {% include "alert.html" %}
+                    <div class="input-control i-c-2">
+                        <input name="name" type="text" required placeholder="YOUR NAME">
+                        <input name="email" type="email" required placeholder="YOUR EMAIL">
+                    </div>
+                    <div class="input-control">
+                        <input name="subject" type="text" required placeholder="ENTER SUBJECT">
+                    </div>
+                    <div class="input-control">
+                        <textarea  name="message" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                    </div>
+                    <div  class="submit-btn">
+                        <button type="submit" class="main-btn">
+                            <span class="btn-text">Contact me</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    
+</script>
+
+
+
+{% endblock %}
