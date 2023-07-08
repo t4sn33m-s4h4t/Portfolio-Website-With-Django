@@ -43,7 +43,7 @@ def contact(request):
 
 
 def post(request, slug):
-    post = Blog.objects.get(slug=slug)
+    post = Blog.objects.get(id=slug)
     context = {'post': post}
     return render(request, 'vcard/post.html', context)
 def handle404(request, exception):

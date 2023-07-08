@@ -50,16 +50,13 @@ class Portfolio(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
-    featured_image = models.ImageField(upload_to='blog/images', null=False, blank=False)
+    featured_image = models.ImageField(upload_to='blog/images', null=True, blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
